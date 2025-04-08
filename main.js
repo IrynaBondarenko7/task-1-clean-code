@@ -1,22 +1,28 @@
-function f1() {
-  var p = new Date();
-  var q = new Date("2025-12-25");
+const christmas = {
+  date: "2025-12-25",
+  elementId: "my-element",
+};
 
-  var variable = Math.round((q - p) / (1000 * 60 * 60 * 24));
+const newYear = {
+  date: "2026-01-01",
+  elementId: "my-element2",
+};
 
-  var variable2 = document.getElementById("my-element");
-  variable2.innerText = variable;
+function displayDaysUntilHoliday(holiday) {
+
+  var daysUntilHoliday = countDaysUntilHoliday(holiday.date);
+
+  var elementReference = document.getElementById(holiday.elementId);
+
+  elementReference.innerText = daysUntilHoliday;
 }
 
-function f2() {
-  var p = new Date();
-  var q = new Date("2026-01-01");
+function countDaysUntilHoliday(date) {
+  var todayDate = new Date();
+  var holidayDate = new Date(date);
 
-  var variable = Math.round((q - p) / (1000 * 60 * 60 * 24));
-
-  var variable2 = document.getElementById("my-element2");
-  variable2.innerText = variable;
+  return Math.round((holidayDate - todayDate) / (1000 * 60 * 60 * 24));
 }
 
-f1();
-f2();
+displayDaysUntilHoliday(christmas);
+displayDaysUntilHoliday(newYear);
