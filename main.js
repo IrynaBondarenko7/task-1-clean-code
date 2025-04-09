@@ -26,18 +26,14 @@ function countDaysUntilHoliday(date) {
   var holidayDate = new Date(date);
   var millisecondsInDay = 1000 * 60 * 60 * 24;
 
-  if (checkIfHolidayDateInPast(todayDate, holidayDate)) {
-    holidayDate = fixOldDateToFutureDate(holidayDate);
+  var currentYear = todayDate.getFullYear();
+
+  holidayDate.setFullYear(currentYear);
+
+  if (todayDate > holidayDate) {
+    holidayDate.setFullYear(currentYear + 1);
   }
   return Math.round((holidayDate - todayDate) / millisecondsInDay);
-}
-
-function checkIfHolidayDateInPast(todayDate, holidayDate) {
-  return new Date(todayDate) > new Date(holidayDate);
-}
-
-function fixOldDateToFutureDate(oldHolidayDate) {
-  return oldHolidayDate.setFullYear(oldHolidayDate.getFullYear() + 1);
 }
 
 holidaysData.forEach((holiday) => {
