@@ -1,30 +1,26 @@
-const holidaysData = [
-  {
-    date: "2025-12-25",
-    elementId: "my-element",
-  },
-  {
-    date: "2026-01-01",
-    elementId: "my-element2",
-  },
-  {
-    date: "2025-02-14",
-    elementId: "my-element3",
-  },
-];
+import { holidaysData } from "./data.js";
 
-function displayDaysUntilHoliday(holiday) {
-  var daysUntilHoliday = countDaysUntilHoliday(holiday.date);
+function displayTimeUntilHoliday(holiday) {
+  var timeUntilHoliday = countTimeUntilHoliday(holiday.date);
 
-  var elementReference = document.getElementById(holiday.elementId);
+  var daysElementReference = document.getElementById(holiday.daysId);
+  var hoursElementReference = document.getElementById(holiday.hoursId);
+  var minutesElementReference = document.getElementById(holiday.minutesId);
+  var secondsElementReference = document.getElementById(holiday.secondsId);
 
-  elementReference.innerText = daysUntilHoliday;
+  daysElementReference.innerText = timeUntilHoliday.days;
+  hoursElementReference.innerText = timeUntilHoliday.hours;
+  minutesElementReference.innerText = timeUntilHoliday.minutes;
+  secondsElementReference.innerText = timeUntilHoliday.seconds;
 }
 
-function countDaysUntilHoliday(date) {
+function countTimeUntilHoliday(date) {
   var todayDate = new Date();
   var holidayDate = new Date(date);
   var millisecondsInDay = 1000 * 60 * 60 * 24;
+  var millisecondsInHour = 1000 * 60 * 60;
+  var millisecondsInMinute = 1000 * 60;
+  var millisecondsInSecond = 1000;
 
   var currentYear = todayDate.getFullYear();
 
@@ -33,9 +29,28 @@ function countDaysUntilHoliday(date) {
   if (todayDate > holidayDate) {
     holidayDate.setFullYear(currentYear + 1);
   }
-  return Math.round((holidayDate - todayDate) / millisecondsInDay);
+
+  var remainingMilliseconds = holidayDate - todayDate;
+
+  var days = Math.floor(remainingMilliseconds / millisecondsInDay);
+  var hours = Math.floor(
+    (remainingMilliseconds % millisecondsInDay) / millisecondsInHour
+  );
+  var minutes = Math.floor(
+    (remainingMilliseconds % millisecondsInHour) / millisecondsInMinute
+  );
+  var seconds = Math.floor(
+    (remainingMilliseconds % millisecondsInMinute) / millisecondsInSecond
+  );
+
+  return {
+    days,
+    hours,
+    minutes,
+    seconds,
+  };
 }
 
 holidaysData.forEach((holiday) => {
-  displayDaysUntilHoliday(holiday);
+  displayTimeUntilHoliday(holiday);
 });
