@@ -6,12 +6,12 @@ function displayTimeUntilHoliday(holiday) {
   var daysElementReference = document.getElementById(holiday.daysId);
   var hoursElementReference = document.getElementById(holiday.hoursId);
   var minutesElementReference = document.getElementById(holiday.minutesId);
-  var secondsElementReference = document.getElementById(holiday.secondsId);
 
   daysElementReference.innerText = timeUntilHoliday.days;
   hoursElementReference.innerText = timeUntilHoliday.hours;
   minutesElementReference.innerText = timeUntilHoliday.minutes;
-  secondsElementReference.innerText = timeUntilHoliday.seconds;
+
+  renderSecondsCircle(timeUntilHoliday.seconds, holiday.secondsCircleId);
 }
 
 function countTimeUntilHoliday(date) {
@@ -49,6 +49,22 @@ function countTimeUntilHoliday(date) {
     minutes,
     seconds,
   };
+}
+
+function renderSecondsCircle(seconds, secondsCircleId) {
+  const circleElement = document.getElementById(secondsCircleId);
+
+  for (let i = 0; i < 60; i++) {
+    const secondsElement = document.createElement("span");
+
+    secondsElement.innerText = i.toString().padStart(2, "0");
+    secondsElement.id = `seconds-${i}`;
+
+    if (i === seconds) {
+      secondsElement.classList.add("active");
+    }
+    circleElement.appendChild(secondsElement);
+  }
 }
 
 holidaysData.forEach((holiday) => {
