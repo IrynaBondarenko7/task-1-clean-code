@@ -8,37 +8,50 @@
     <title>Holidays countdown</title>
   </head>
   <body>
-    <div>
-      <div>
-        <h3>Time left until Christmas</h3>
-        <p><span id="days-1"></span><span>Days</span></p>
-        <p><span id="hours-1"></span><span>Hours</span></p>
-        <p><span id="minutes-1"></span><span>Minutes</span></p>
-        <div class="circle-container">
-          <div class="seconds-circle" id="secondsCircle-1"></div>
-          <span>Seconds</span>
-        </div>
+    <header class="header">
+      <div class="container">
+        <h1 class="title">Holidays Countdown</h1>
       </div>
-      <div>
-        <h3>Time left until New Year</h3>
-        <p><span id="days-2"></span><span>Days</span></p>
-        <p><span id="hours-2"></span><span>Hours</span></p>
-        <p><span id="minutes-2"></span><span>Minutes</span></p>
-        <div class="circle-container">
-          <div class="seconds-circle" id="secondsCircle-2"></div>
-          <span>Seconds</span>
-        </div>
+    </header>
+    <main>
+      <div class="container">
+        <h2 class="sub-title">Time left until</h2>
+        <ul class="holidays-list">
+          <li class="holidays-list-card christmas-card">
+            <h3>Christmas</h3>
+            <p><span id="days-1"></span><span>Days</span></p>
+            <p><span id="hours-1"></span><span>Hours</span></p>
+            <p><span id="minutes-1"></span><span>Minutes</span></p>
+            <div class="circle-container">
+              <div class="seconds-circle" id="secondsCircle-1"></div>
+              <span>Seconds</span>
+            </div>
+          </li>
+          <li class="holidays-list-card newYear-card">
+            <h3>New Year</h3>
+            <p><span id="days-2"></span><span>Days</span></p>
+            <p><span id="hours-2"></span><span>Hours</span></p>
+            <p><span id="minutes-2"></span><span>Minutes</span></p>
+            <div class="circle-container">
+              <div class="seconds-circle" id="secondsCircle-2"></div>
+              <span>Seconds</span>
+            </div>
+          </li>
+          <li class="holidays-list-card valentines-card">
+            <h3>Valentines Day</h3>
+            <p><span id="days-3"></span><span>Days</span></p>
+            <p><span id="hours-3"></span><span>Hours</span></p>
+            <p><span id="minutes-3"></span><span>Minutes</span></p>
+            <div class="circle-container">
+              <div class="seconds-circle" id="secondsCircle-3"></div>
+              <span>Seconds</span>
+            </div>
+          </li>
+        </ul>
       </div>
-      <div>
-        <h3>Time left until Valentines Day</h3>
-        <p><span id="days-3"></span><span>Days</span></p>
-        <p><span id="hours-3"></span><span>Hours</span></p>
-        <p><span id="minutes-3"></span><span>Minutes</span></p>
-        <div class="circle-container">
-          <div class="seconds-circle" id="secondsCircle-3"></div>
-          <span>Seconds</span>
-        </div>
-      </div>
-    </div>
+    </main>
+    <footer>
+      <div class="container">Contact us</div>
+    </footer>
   </body>
 </html>

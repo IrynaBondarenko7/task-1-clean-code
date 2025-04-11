@@ -1,3 +1,140 @@
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   font-family: arial;
+}
+
+* {
+  margin: 0;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+span {
+  word-break: break-word;
+}
+
+body {
+  background: #020024;
+  background: linear-gradient(
+    179deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 43%,
+    rgba(24, 121, 181, 1) 100%
+  );
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.header {
+  padding-top: 15px;
+}
+
+.title {
+  font-size: 30px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    311deg,
+    hsl(292, 37%, 53%),
+    hsl(216, 100%, 65%)
+  );
+  text-align: center;
+}
+
+.sub-title {
+  font-size: 20px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    40deg,
+    hsl(293, 67%, 47%),
+    hsl(234, 62%, 64%)
+  );
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.holidays-list {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.holidays-list-card {
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5),
+    0 8px 10px -6px rgb(0 0 0 / 0.5);
+}
+
+.christmas-card {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./images/christmas.jpg");
+}
+.newYear-card {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./images/newYear.jpg");
+}
+
+.valentines-card {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./images/valentines-day.jpg");
+  background-position: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+  .holidays-list-card {
+    width: calc((100% - 40px) / 2);
+    height: 300px;
+  }
+  .title {
+    font-size: 50px;
+  }
+
+  .sub-title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+  }
+  .holidays-list-card {
+    width: calc((100% - 40px) / 3);
+    height: 400px;
+  }
+  .title {
+    font-size: 70px;
+  }
+  .sub-title {
+    font-size: 50px;
+  }
 }
