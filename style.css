@@ -37,6 +37,12 @@ body {
   );
   background-repeat: no-repeat;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 .header {
@@ -121,6 +127,42 @@ body {
   .sub-title {
     font-size: 30px;
   }
+}
+
+.icons-list {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.icon-link {
+  color: hsl(234, 62%, 64%);
+  transition: color 0.6s ease;
+}
+
+.icon-link:hover {
+  color: hsl(234, 81%, 71%);
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+}
+
+.footer-title {
+  font-size: 18px;
+  font-weight: 600;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    40deg,
+    hsl(234, 89%, 71%),
+    hsl(234, 62%, 64%)
+  );
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 50px;
 }
 
 @media screen and (min-width: 1440px) {
