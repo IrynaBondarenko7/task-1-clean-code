@@ -3,13 +3,9 @@ import { holidaysData } from "./data.js";
 function displayTimeUntilHoliday(holiday) {
   var timeUntilHoliday = countTimeUntilHoliday(holiday.date);
 
-  var daysElementReference = document.getElementById(holiday.daysId);
-  var hoursElementReference = document.getElementById(holiday.hoursId);
-  var minutesElementReference = document.getElementById(holiday.minutesId);
-
-  daysElementReference.innerText = timeUntilHoliday.days;
-  hoursElementReference.innerText = timeUntilHoliday.hours;
-  minutesElementReference.innerText = timeUntilHoliday.minutes;
+  setTimeInnerText(timeUntilHoliday.days, holiday.daysId, 3);
+  setTimeInnerText(timeUntilHoliday.hours, holiday.hoursId, 2);
+  setTimeInnerText(timeUntilHoliday.minutes, holiday.minutesId, 2);
 
   renderSecondsCircle(timeUntilHoliday.seconds, holiday.secondsCircleId);
 }
@@ -51,13 +47,21 @@ function countTimeUntilHoliday(date) {
   };
 }
 
+function setTimeInnerText(value, elementId, padLength) {
+  const element = document.getElementById(elementId);
+  element.innerText = value.toString().padStart(padLength, "0");
+}
+
 function renderSecondsCircle(seconds, secondsCircleId) {
   const circleElement = document.getElementById(secondsCircleId);
+  circleElement.innerHTML = "";
 
   for (let i = 0; i < 60; i++) {
     const secondsElement = document.createElement("span");
+    const angle = i * 6;
 
     secondsElement.innerText = i.toString().padStart(2, "0");
+    secondsElement.style.transform = `rotate(${angle}deg) translate(270px)`;
     secondsElement.id = `seconds-${i}`;
 
     if (i === seconds) {
@@ -65,6 +69,13 @@ function renderSecondsCircle(seconds, secondsCircleId) {
     }
     circleElement.appendChild(secondsElement);
   }
+
+  rotateCircle(seconds, circleElement);
+}
+
+function rotateCircle(seconds, element) {
+  const rotation = -seconds * 6;
+  element.style.transform = `rotate(${rotation}deg)`;
 }
 
 holidaysData.forEach((holiday) => {
