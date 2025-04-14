@@ -81,3 +81,11 @@ function rotateCircle(seconds, element) {
 holidaysData.forEach((holiday) => {
   displayTimeUntilHoliday(holiday);
 });
+
+const updateBtn = document.getElementById("update-btn");
+
+updateBtn.addEventListener("click", () => {
+  holidaysData.forEach((holiday) => {
+    displayTimeUntilHoliday(holiday);
+  });
+});

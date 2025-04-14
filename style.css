@@ -192,6 +192,47 @@ main {
   font-size: 11px;
 }
 
+.button {
+  position: relative;
+  overflow: hidden;
+  width: 320px;
+  display: block;
+  margin: 40px auto 0;
+  border-radius: 10px;
+  padding: 5px;
+  border: none;
+  color: var(--card-primary-text-color);
+  cursor: pointer;
+  font-size: 18px;
+  background-image: linear-gradient(
+    311deg,
+    var(--primary-text-color),
+    var(--secondary-text-color)
+  );
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    311deg,
+    var(--secondary-text-color),
+    var(--primary-text-color)
+  );
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  z-index: -1;
+}
+
+.button:hover::before {
+  opacity: 1;
+}
+
 .icons-list {
   display: flex;
   gap: 20px;
@@ -200,7 +241,7 @@ main {
 
 .icon-link {
   color: var(--footer-title-secondary-color);
-  transition: color 0.6s ease;
+  transition: color 0.8s ease;
 }
 
 .icon-link:hover {
@@ -225,17 +266,19 @@ main {
   );
   text-align: center;
   margin-bottom: 20px;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 @media screen and (min-width: 768px) {
   .container {
     width: 768px;
   }
+
   .holidays-list-card {
     width: calc((100% - 40px) / 2);
     height: 300px;
   }
+
   .title {
     font-size: 50px;
   }
@@ -243,6 +286,7 @@ main {
   .sub-title {
     font-size: 30px;
   }
+
   .card-title {
     font-size: 22px;
   }
@@ -262,6 +306,7 @@ main {
   .time-text {
     font-size: 12px;
   }
+
   .time-wrap {
     margin-top: 94px;
     gap: 15px;
@@ -270,11 +315,17 @@ main {
   .seconds-circle {
     left: -174px;
   }
+
   .time-text-seconds {
     font-size: 12px;
   }
+
   .time-text-seconds {
     margin-left: 37px;
+  }
+
+  .footer-title {
+    font-size: 20px;
   }
 }
 
@@ -282,19 +333,24 @@ main {
   .container {
     width: 1440px;
   }
+
   .holidays-list-card {
     width: calc((100% - 40px) / 3);
     height: 400px;
   }
+
   .title {
     font-size: 70px;
   }
+
   .sub-title {
     font-size: 50px;
   }
+
   .card-title {
     font-size: 27px;
   }
+
   .seconds-circle span {
     font-size: 27px;
   }
@@ -310,6 +366,7 @@ main {
   .time-text {
     font-size: 17px;
   }
+
   .time-wrap {
     margin-top: 139px;
     gap: 20px;
@@ -322,5 +379,10 @@ main {
   .time-text-seconds {
     margin-left: 40px;
     font-size: 17px;
+  }
+
+  .button {
+    margin-top: 50px;
+    font-size: 20px;
   }
 }
